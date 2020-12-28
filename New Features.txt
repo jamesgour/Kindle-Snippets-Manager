@@ -1,0 +1,13 @@
+Feature Ideas:
+Give users a nice "database view" or book view to see highlights based on selection
+Let users control which books they want to receive random highlights from
+Should you focus on 5-10 highlights from a single book each day ? or entirely random?
+
+Create a web app using streamlit to see that day's quote
+Give users the ability to put in their email address to get those quotes?
+
+Database view
+Quotes of the day view
+What other views in app? Settings view?, book selection view
+# of quotes to receive per day view
+mechanism for receiving quotes - either email or text message
