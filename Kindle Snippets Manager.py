@@ -14,17 +14,27 @@ uploaded_file = st.file_uploader("Upload File Here")
 #def SnippetDataFrame(uploaded_file):
     # Create a list item for every line in myclippings.txt
 
+# Convert uploaded file into a string and do some cleanup
+uploaded_file_str = str(uploaded_file.read(), 'utf-8')
+#print(uploaded_file_str)
+
+# Convert to DF
+uploaded_file_str = io.StringIO(uploaded_file_str)
+df = pd.read_csv(uploaded_file, sep="==========")
+print(df)
+# Convert uploaded file into a list
+uploaded_file_list = list(uploaded_file_str.split(" "))
+
 # Create a list item for every line in myclippings.txt
 clippings_list = []
 
-if uploaded_file is not None:
-    for line in uploaded_file:
+#if uploaded_file is not None:
+    #for line in uploaded_file_str:
         #line = line.replace('\n', '')
         #line = line.replace('\ufeff', '')
         #clippings_list.append(line)
-        st.write(line)
+        #st.write(line)
 
-# LEFT OFF HERE - still trying to figure out how to read line by line when the uploaded file is read in bytes!!
 
 # with open('My Clippings - Copy.txt', 'r+', encoding="utf8") as file:
 #     for line in file:

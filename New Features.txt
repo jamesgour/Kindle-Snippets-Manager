@@ -11,3 +11,6 @@ Quotes of the day view
 What other views in app? Settings view?, book selection view
 # of quotes to receive per day view
 mechanism for receiving quotes - either email or text message
+
+Mechanism for deleting quotes that are over e.g. 70% similar - due to Kindle glitch! OR -
+that match word for word up to a given point with another quote in the database
