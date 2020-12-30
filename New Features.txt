@@ -14,3 +14,23 @@ mechanism for receiving quotes - either email or text message
 
 Mechanism for deleting quotes that are over e.g. 70% similar - due to Kindle glitch! OR -
 that match word for word up to a given point with another quote in the database
+
+Original Notes
+Export the HTML file of notes/highlights using the Kindle app > send to an email that you will be able to parse
+Want to store all highlights in a SQL database along w/ metadata from book that you can fetch from Google Books API (especially title, book cover image, etc)
+Generate daily email or SMS w/ 5-10 quotes from a book you have read to review > make it clean with a picture of the title cover
+Provide a clean front end for viewing the SQL database of highlights web app
+
+How to get the data out regularly?
+myclippings.txt file from kindle via USB connection
+export summary from Kindle App after every book
+
+Connect Kindle via usb, drag & drop myclippings.txt - does myclippings.txt work between devices?
+
+Good verbiage > add to app
+It's one thing to read a book, but it's another thing to actually get something out of that book. Active reading is key here along with regular review
+Reading process = Read & highlight + take notes in the margin
+Might need to figure out how to add notes into this app
+
+Take the highlights & notes and then turn into Anki decks to regularly review
+How to implement Anki review algorithm into this app?
