@@ -16,7 +16,7 @@ st.sidebar.write('A simpler way to remember what you read')
 email_address = st.sidebar.text_input("Please enter e-mail address for daily summary")
 
 # Number of random quotes to receive
-num_quotes = st.sidebar.multiselect('How many quotes would you like to receive?', range(11))
+num_quotes = st.sidebar.selectbox('How many quotes would you like to receive?', range(11))
 
 # File uploader
 uploaded_file = st.sidebar.file_uploader("Upload the myclippings.txt file here")
@@ -89,6 +89,7 @@ clippings_df_len = len(clippings_df)
 random_selection = np.random.randint(clippings_df_len, size=num_quotes)
 random_selection_df = clippings_df.iloc[random_selection]
 random_selection_df = random_selection_df[['Book Title', 'Author', 'Clipping']]
+# Add in validation to avoid getting the same quote multiple times!!
 
 # Print the quotes
 for index, row in random_selection_df.iterrows():
