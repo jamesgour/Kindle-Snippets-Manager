@@ -7,15 +7,24 @@ import sys
 import io
 import streamlit as st
 
+# SIDEBAR UI
 # Title for the app
-st.title('Kindle Snippets Manager')
-st.write('A simpler way to remember what you read')
+st.sidebar.title('Kindle Snippets Manager')
+st.sidebar.write('A simpler way to remember what you read')
 
 # Email Address Input
-email_address = st.text_input("Please enter e-mail address for daily summary")
+email_address = st.sidebar.text_input("Please enter e-mail address for daily summary")
 
 # Number of random quotes to receive
-num_quotes = st.multiselect('How many quotes would you like to receive?', range(11))
+num_quotes = st.sidebar.multiselect('How many quotes would you like to receive?', range(11))
+
+# File uploader
+uploaded_file = st.sidebar.file_uploader("Upload the myclippings.txt file here")
+
+
+# MAIN APP PAGE
+# Title for the app
+st.title("Today's Daily Snippets")
 
 
 # Function for cleaning & transforming txt file into dataframe
@@ -65,8 +74,7 @@ def create_dataframe(file):
     return clippings_df
 
 
-# File uploader
-uploaded_file = st.file_uploader("Upload the myclippings.txt file here")
+
 
 # Run create_dataframe function
 clippings_df = create_dataframe(uploaded_file)
@@ -84,12 +92,13 @@ random_selection_df = random_selection_df[['Book Title', 'Author', 'Clipping']]
 
 # Print the quotes
 for index, row in random_selection_df.iterrows():
+    st.write('_________________________________')
     st.write(row['Book Title'] + '- ' + row['Author'])
     st.write(row['Clipping'])
-    st.write('_________________________________')
 
-#for index in random_selection:
-    #st.write(clippings_df['Clipping'].iloc(index))
+
+
+
 
 #st.write(])
 
