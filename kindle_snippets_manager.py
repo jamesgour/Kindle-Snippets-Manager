@@ -11,7 +11,15 @@ import streamlit as st
 st.title('Kindle Snippets Manager')
 st.write('A simpler way to remember what you read')
 
+# Email Address Input
+email_address = st.text_input("Please enter e-mail address for daily summary")
 
+# Number of random quotes to receive
+num_quotes = st.multiselect('How many quotes would you like to receive?', range(11))
+
+
+# Function for cleaning & transforming txt file into dataframe
+@st.cache
 def create_dataframe(file):
     # Read uploaded file to a dataframe
     clippings_df = pd.read_csv(file, header=None, sep='\n')
@@ -49,14 +57,42 @@ def create_dataframe(file):
     clippings_df['Date Added'] = clippings_df['Date Added'].str.replace('Added on ', '')
     # Still need to turn Date Added column into a date time
 
-    # Remove duplicate clippings - sometimes happens due to Kindle glitch
+    # Remove duplicate clippings & clean up odd entries - sometimes happens due to Kindle glitch
     clippings_df = clippings_df.drop_duplicates(subset='Clipping', keep="last")
     clippings_df = clippings_df.drop_duplicates(subset=['Location', 'Author'], keep="last")
+    clippings_df = clippings_df.dropna(subset=['Date Added'])
 
     return clippings_df
 
 
 # File uploader
 uploaded_file = st.file_uploader("Upload the myclippings.txt file here")
+
+# Run create_dataframe function
+clippings_df = create_dataframe(uploaded_file)
+
+# Display DataFrame
 if uploaded_file is not None:
-    st.write(create_dataframe(uploaded_file))
+    st.write(clippings_df)
+
+# START OF RANDOM SELECTION CODE
+# Method 1: Pick num_quotes at random
+clippings_df_len = len(clippings_df)
+random_selection = np.random.randint(clippings_df_len, size=num_quotes)
+st.write(random_selection)
+
+# # Method 2: Select a random book and then num_quotes # of random quotes
+#
+# # Create dict of book titles & number of quotes per title
+# book_titles = clippings_df['Book Title'].unique()
+# num_quotes = {}
+#
+# for title in book_titles:
+#     num_quotes[title] = (len(clippings_df[clippings_df['Book Title'] == title]))
+#
+# # Generate num_quotes random quotes based on 1) random selection of a book and 2)random selection of num_quotes quotes
+# # If the book does not have num_quotes quotes, pick another book and generate the remaining amount of quotes
+# num_of_titles = len(book_titles)
+
+
+
