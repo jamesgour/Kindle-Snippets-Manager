@@ -71,15 +71,27 @@ uploaded_file = st.file_uploader("Upload the myclippings.txt file here")
 # Run create_dataframe function
 clippings_df = create_dataframe(uploaded_file)
 
-# Display DataFrame
-if uploaded_file is not None:
-    st.write(clippings_df)
+# # Display DataFrame
+# if uploaded_file is not None:
+#     st.write(clippings_df)
 
 # START OF RANDOM SELECTION CODE
 # Method 1: Pick num_quotes at random
 clippings_df_len = len(clippings_df)
 random_selection = np.random.randint(clippings_df_len, size=num_quotes)
-st.write(random_selection)
+random_selection_df = clippings_df.iloc[random_selection]
+random_selection_df = random_selection_df[['Book Title', 'Author', 'Clipping']]
+
+# Print the quotes
+for index, row in random_selection_df.iterrows():
+    st.write(row['Book Title'] + '- ' + row['Author'])
+    st.write(row['Clipping'])
+    st.write('_________________________________')
+
+#for index in random_selection:
+    #st.write(clippings_df['Clipping'].iloc(index))
+
+#st.write(])
 
 # # Method 2: Select a random book and then num_quotes # of random quotes
 #
