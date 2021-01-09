@@ -1,4 +1,7 @@
 Feature Ideas:
+UI to add your own highlights to the database - in case Kindle changes myclippings.txt on us
+Want to be able to use the app forever
+
 Give users a nice "database view" or book view to see highlights based on selection
 Let users control which books they want to receive random highlights from
 Should you focus on 5-10 highlights from a single book each day ? or entirely random?

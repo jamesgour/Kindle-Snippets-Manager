@@ -80,8 +80,8 @@ def create_dataframe(file):
 clippings_df = create_dataframe(uploaded_file)
 
 # # Display DataFrame
-# if uploaded_file is not None:
-#     st.write(clippings_df)
+if uploaded_file is not None:
+     st.write(clippings_df)
 
 # START OF RANDOM SELECTION CODE
 # Method 1: Pick num_quotes at random
@@ -96,7 +96,7 @@ for index, row in random_selection_df.iterrows():
     st.write('_________________________________')
     st.write(row['Book Title'] + '- ' + row['Author'])
     st.write(row['Clipping'])
-
+    
 
 
 
