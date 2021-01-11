@@ -29,4 +29,12 @@ def create_app(test_config=None):
     def hello():
         return 'the hello.'
 
+
+    #import and call functions from db.py to register with the application
+    from . import db
+    db.init_app(app)
+
     return app
+
+
+    
