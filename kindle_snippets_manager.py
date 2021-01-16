@@ -69,7 +69,7 @@ def create_dataframe(file):
     # Remove duplicate clippings & clean up odd entries - sometimes happens due to Kindle glitch
     clippings_df = clippings_df.drop_duplicates(subset='Clipping', keep="last")
     clippings_df = clippings_df.drop_duplicates(subset=['Location', 'Author'], keep="last")
-    clippings_df = clippings_df.dropna(subset=['Date Added'])
+    clippings_df = clippings_df.dropna(subset=['Date Added'])   
 
     return clippings_df
 
@@ -97,6 +97,7 @@ for index, row in random_selection_df.iterrows():
     st.write(row['Book Title'] + '- ' + row['Author'])
     st.write(row['Clipping'])
     
+def hellotest()
 
 
 
