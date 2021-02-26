@@ -1,8 +1,8 @@
-from app.dailybriefing import bp
+from app.dailybriefing import dailybriefing_bp
 from flask import render_template
 
-@bp.route('/', methods=['GET', 'POST'])
-@bp.route('/dailybriefing', methods=['GET', 'POST'])
+@dailybriefing_bp.route('/', methods=['GET'])
+@dailybriefing_bp.route('/dailybriefing', methods=['GET'])
 def dailybriefing():
     #form = DailyBriefing()
     return render_template('dailybriefing.html', title='Daily Briefing')

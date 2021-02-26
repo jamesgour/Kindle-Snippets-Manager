@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, url_for
+from flask_bootstrap import Bootstrap
+
+# Register Extensions
+bootstrap = Bootstrap()
 
 def create_app(test_config=None):
     app = Flask(__name__)
     #app.config.from_object(config_class)
 
-    from app.dailybriefing import bp as dailybriefing_bp
-    app.register_blueprint(dailybriefing_bp)
+    # Init Extensions
+    bootstrap.init_app(app)
+
+    # Blueprint Imports
+    from app.dailybriefing import dailybriefing_bp
+    app.register_blueprint(dailybriefing.dailybriefing_bp)
 
     return app
