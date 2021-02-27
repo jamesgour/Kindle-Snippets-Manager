@@ -1,12 +1,14 @@
 from flask import Flask, url_for
+from config import Config
 from flask_bootstrap import Bootstrap
+
 
 # Register Extensions
 bootstrap = Bootstrap()
 
 def create_app(test_config=None):
     app = Flask(__name__)
-    #app.config.from_object(config_class)
+    app.config.from_object(Config)
 
     # Init Extensions
     bootstrap.init_app(app)
