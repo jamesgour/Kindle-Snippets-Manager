@@ -15,4 +15,7 @@ def create_app(test_config=None):
     from app.dailybriefing import dailybriefing_bp
     app.register_blueprint(dailybriefing.dailybriefing_bp)
 
+    from app.snippetimport import snippetimport_bp
+    app.register_blueprint(snippetimport.snippetimport_bp)
+
     return app
