@@ -14,6 +14,9 @@ def create_app(test_config=None):
     bootstrap.init_app(app)
 
     # Blueprint Imports
+    from app.authentication import authentication_bp
+    app.register_blueprint(authentication.authentication_bp)
+    
     from app.dailybriefing import dailybriefing_bp
     app.register_blueprint(dailybriefing.dailybriefing_bp)
 
