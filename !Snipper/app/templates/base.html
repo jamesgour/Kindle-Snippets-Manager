@@ -20,6 +20,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
+        <!-- Vary the navigation bar based on if the user is logged in -->
+        {% if current_user.is_anonymous %}
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="{{ url_for('authentication.login') }}">Login</a>
+        </div>
+        {% else %}
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{{ url_for('dailybriefing.dailybriefing') }}">Daily Briefing <span class="sr-only">(current)</span></a>
@@ -29,9 +36,9 @@
 
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Profile</a>
-            <a class="nav-item nav-link" href="{{ url_for('authentication.login') }}">Login</a>
-            <a class="nav-item nav-link" href="#">Logout</a>
+            <a class="nav-item nav-link" href="{{ url_for('authentication.logout') }}">Logout</a>
           </div>
+          {% endif %}
         </div>
       </nav>
     {% endblock %}
