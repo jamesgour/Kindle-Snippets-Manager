@@ -1,6 +1,7 @@
 from app.snippetimport import snippetimport_bp
 from flask import render_template
 from app.snippetimport.forms import SnippetImportForm
+from flask_login import login_required
 
 @snippetimport_bp.route('/import', methods=['GET'])
 @login_required
