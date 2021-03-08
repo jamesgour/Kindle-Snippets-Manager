@@ -2,20 +2,15 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block title %}
-    Login
+    Register
 {% endblock %}
 
 {% block content %}
-    <h1>{{ 'Sign In' }}</h1>
+    <h1>{{ 'Register New Account' }}</h1>
     <div class="row">
         <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
     </div>
     <br>
-    <p>{{ 'New User?' }} <a href="{{ url_for('authentication.register') }}">{{ 'Click to Register!' }}</a></p>
-    <p>
-        {{ 'Forgot Your Password?' }}
-        <a href=#>{{ 'Click to Reset It' }}</a>
-    </p> 
 {% endblock %}

@@ -24,6 +24,7 @@
         <!-- Vary the navigation bar based on if the user is logged in -->
         {% if current_user.is_anonymous %}
         <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="{{ url_for('authentication.register') }}">Register</a>
           <a class="nav-item nav-link" href="{{ url_for('authentication.login') }}">Login</a>
         </div>
         {% else %}
