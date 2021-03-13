@@ -6,12 +6,8 @@
 
 {% block content %}
     <h2>Hi, {{ current_user.username }} Welcome To Your Daily Briefing!</h1>
-    {% for snippet in snippets %}
-        <div><p>
-            <!-- TODO Finish basic rendering of the information you populate in snippets table -->
-            <!-- This is what miguel had below: -->
-            <!-- <h1>Hi, {{ user.username }}!</h1>
-            <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div> -->
-        </p></div>
+    {% for post in posts %}
+    <div><p></p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
+    <!-- TODO Figure out how actually show the post that michi created in the daily briefing using a nice table or something -->
 {% endblock %}
