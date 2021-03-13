@@ -29,7 +29,8 @@ def load_user(id):
 
 class Snippet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    source_title = db.Column(db.String(90))
+    source = db.Column(db.String(90))
+    source_type = db.Column(db.String(60))
     author = db.Column(db.String(60))
     snippet = db.Column(db.String(360))
     created_dtm = db.Column(db.DateTime, index=True, default=datetime.utcnow)
