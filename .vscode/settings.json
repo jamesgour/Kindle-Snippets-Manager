@@ -7,7 +7,7 @@
         "--load-plugins",
         "pylint_flask_sqlalchemy, pylint_flask",
         "--init-hook",
-        "import sys; sys.path.insert(0, 'C:\\Users\\jamesgou\\OneDrive - Intel Corporation\\Data Science Training\\Personal Projects\\Knowledge-Snippets-Manager\\!Snipper')"
+        "import sys; sys.path.insert(0, '')"
     ]
     // C:\\Users\\jamesgou\\OneDrive - Intel Corporation\\Data Science Training\\Personal Projects\\Knowledge-Snippets-Manager\\!Snipper # Insert into above '' (this wasn't working before...)
 }

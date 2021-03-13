@@ -4,6 +4,7 @@ from app.authentication.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User
 from werkzeug.urls import url_parse
+from app import db
 
 @authentication_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -37,7 +38,7 @@ def logout():
     return redirect(url_for('authentication.login'))
 
 
-@authentication_bp.route('/register')
+@authentication_bp.route('/register', methods=['GET', 'POST'])
 def register():
     # In case already logged-in user accidentally navigates to /login
     if current_user.is_authenticated:

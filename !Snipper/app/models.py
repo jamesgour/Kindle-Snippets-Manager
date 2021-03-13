@@ -38,6 +38,4 @@ class Snippet(db.Model):
 
     def __repr__(self):
         return 'Snippet {}'.format(self.snippet)
-
-
-       
+ 
