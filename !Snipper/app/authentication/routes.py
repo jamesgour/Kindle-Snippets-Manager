@@ -14,11 +14,10 @@ def login():
     form = LoginForm()
 
     # If form is submitted, check db if user info is correct then flash error or log user in
-    # TODO - Figure out why flash of invalid username/pw is not working when you submit the wrong password!!
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash('Invalid username or password', 'danger')
             return redirect(url_for('authentication.login'))
         login_user(user, remember=form.remember_me.data)
         
@@ -26,6 +25,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('dailybriefing.dailybriefing')
+        flash('You have been successfully logged in!', 'success')
         return redirect(next_page)
     
     # Display login page - previous block is skipped when page first loads
@@ -51,6 +51,6 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you have successfully registered!')
+        flash('Congratulations, you have successfully registered!', 'success')
         return redirect(url_for('authentication.login'))
     return render_template('register.html', title='Reigster', form=form)

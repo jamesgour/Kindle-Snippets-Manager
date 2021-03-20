@@ -15,7 +15,7 @@ def snippetimport():
         snippet = Snippet(snippet=form.snippet.data, source=form.source.data, author=form.author.data,source_type=form.source_type.data, user_id=current_user.username)
         db.session.add(snippet)
         db.session.commit()
-        flash('Your snippet has been added successfully!')
+        flash('Your snippet has been added successfully!', 'success')
         return redirect(url_for('snippetimport.snippetimport'))   
 
     # Else render the form for user to fill out

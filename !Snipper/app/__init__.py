@@ -2,14 +2,12 @@ from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 
 
 # Register Extensions
 db = SQLAlchemy()
 migrate = Migrate()
-bootstrap = Bootstrap()
 login = LoginManager()
 
 # Flask-login @login.required auto redirect
@@ -24,7 +22,6 @@ def create_app(test_config=None):
     # Init Extensions
     db.init_app(app)
     migrate.init_app(app, db)
-    bootstrap.init_app(app)
     login.init_app(app)
 
     # Blueprint Imports

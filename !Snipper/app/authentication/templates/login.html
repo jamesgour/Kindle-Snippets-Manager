@@ -1,22 +1,63 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block title %}
     Login
 {% endblock %}
 
 {% block app_content %}
-    <h1>{{ 'Sign In' }}</h1>
-    <!-- Could use "row align-items-center justify-content-center" to center, but it's not easy -->
-    <div class="row">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+<div class="content-section">
+    <form method="POST" action="">
+        <!-- CSRF Token to protect form against attacks -->
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Login</legend>
+            <!-- Form labels & fields -->
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!-- Remember me  -->
+            <div class="form-check">
+                {{ form.remember_me(class="form-check-input") }}
+                {{ form.remember_me.label(class="form-check-label") }}
+            </div>
+        </fieldset>
+        <!-- Submit button -->
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
         </div>
-    </div>
-    <br>
-    <p>{{ 'New User?' }} <a href="{{ url_for('authentication.register') }}">{{ 'Click to Register!' }}</a></p>
-    <p>
-        {{ 'Forgot Your Password?' }}
-        <a href=#>{{ 'Click to Reset It' }}</a>
-    </p> 
+        <!-- Forgot password  -->
+        <small class='text-muted ml-2'>
+            <a href="#">Forgot Password?</a>
+        </small>
+    </form>
+</div>
+<!-- Need an account -->
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Need An Account? <a class="ml-2" href="{{ url_for('authentication.register') }}">Sign Up!</a>
+    </small>
+</div>
 {% endblock %}
