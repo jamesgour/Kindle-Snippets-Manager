@@ -54,3 +54,9 @@ def register():
         flash('Congratulations, you have successfully registered!', 'success')
         return redirect(url_for('authentication.login'))
     return render_template('register.html', title='Reigster', form=form)
+
+
+@authentication_bp.route('/resetpassword')
+def reset_password():
+    return render_template('reset_password.html', title='Reset Password')
+    
