@@ -6,6 +6,7 @@
 
 {% block app_content %}
     <h2>Hi, {{ current_user.username }} Welcome To Your Daily Briefing!</h1>
+    
     {% for post in posts %}
     <div><p></p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
