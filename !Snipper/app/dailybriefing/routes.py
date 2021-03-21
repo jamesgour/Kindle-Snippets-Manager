@@ -10,12 +10,16 @@ def dailybriefing():
     #form = DailyBriefing()
     posts = [
         {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
+            'author': 'Mista',
+            'title': 'Title A',
+            'content': 'First post from Mista',
+            'date_posted': 'April 20, 2017'
         },
         {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
+            'author': 'Mick',
+            'title': 'Title B',
+            'content': 'First post from Michi',
+            'date_posted': 'May 30, 2020'
         }
     ]
-    return render_template('dailybriefing.html', title='Daily Briefing')
+    return render_template('dailybriefing.html', title='Daily Briefing', posts=posts)

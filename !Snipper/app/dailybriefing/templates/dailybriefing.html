@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block app_content %}
-    <h2>Hi, {{ current_user.username }} Welcome To Your Daily Briefing!</h1>
-    
+    <h2 class="centered-title">Hi, {{ current_user.username }} Welcome To Your Daily Briefing!</h1>
     {% for post in posts %}
-    <div><p></p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="text-muted">{{ post.date_posted }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
     {% endfor %}
-    <!-- TODO Figure out how actually show the post that michi created in the daily briefing using a nice table or something -->
 {% endblock %}
