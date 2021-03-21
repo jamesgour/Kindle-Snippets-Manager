@@ -39,11 +39,11 @@
             <a class="nav-item nav-link active" href="{{ url_for('dailybriefing.dailybriefing') }}">Daily Briefing <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="{{ url_for('snippetlibrary.snippetlibrary') }}">Snippet Library <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="{{ url_for('snippetimport.snippetimport') }}">Import</a>
-            <a class="nav-item nav-link" href="#">Settings</a>
           </div>
 
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Profile</a>
+            <a class="nav-item nav-link" href="{{ url_for('profile.profile') }}">Profile</a>
+            <a class="nav-item nav-link" href="#">Settings</a>
             <a class="nav-item nav-link" href="{{ url_for('authentication.logout') }}">Logout</a>
           </div>
           {% endif %}

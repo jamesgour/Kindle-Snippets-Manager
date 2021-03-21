@@ -37,6 +37,9 @@ def create_app(test_config=None):
     from app.snippetimport import snippetimport_bp
     app.register_blueprint(snippetimport.snippetimport_bp)
 
+    from app.profile import profile_bp
+    app.register_blueprint(profile.profile_bp)
+
     return app
 
 
