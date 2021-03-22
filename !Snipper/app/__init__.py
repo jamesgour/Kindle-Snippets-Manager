@@ -5,7 +5,6 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_moment import Moment
 
-
 # Register Extensions
 db = SQLAlchemy()
 migrate = Migrate()
