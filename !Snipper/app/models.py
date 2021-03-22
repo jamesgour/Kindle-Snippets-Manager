@@ -14,6 +14,7 @@ class User(UserMixin, db.Model):
     snippets = db.relationship('Snippet', backref='user', lazy=True)
 
     def __repr__(self):
+        """Clean representation of User class"""
         return f"User('{self.username}', '{self.email}')"
 
     # Password hashing implementation
@@ -47,5 +48,6 @@ class Snippet(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
+        """Clean representation of Snippet class"""
         return f"Snippet('{self.source}', '{self.snippet}')"
  
