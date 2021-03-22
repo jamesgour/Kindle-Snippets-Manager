@@ -12,7 +12,7 @@ def snippetimport():
 
     # If form is submitted, add new data to db and commit the session
     if form.validate_on_submit():
-        snippet = Snippet(snippet=form.snippet.data, source=form.source.data, author=form.author.data,source_type=form.source_type.data, user_id=current_user.username)
+        snippet = Snippet(snippet=form.snippet.data, source=form.source.data, author=form.author.data,source_type=form.source_type.data, user=current_user)
         db.session.add(snippet)
         db.session.commit()
         flash('Your snippet has been added successfully!', 'success')

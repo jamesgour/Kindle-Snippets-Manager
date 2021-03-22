@@ -18,12 +18,9 @@ flask shell
 
 # Erase data from tables in db
 flask shell
-users = User.query.all()
-for u in users:
-    db.session.delete(u)
+db.drop_all()
+# Then, delete migrations folder
+db.create_all()
+# Exit flask shell
+flask db init
 
-snippets = Snippet.query.all()
-for s in snippets:
-    db.session.delete(s)
-
-db.session.commit()
